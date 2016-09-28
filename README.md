@@ -13,9 +13,9 @@ I hacked together a Python script which takes the standard library's sort and
 emits code specialized for a given []type.  So rather than using interface
 functions like Swap() and Less(), it directly uses `a,b=b,a` and `a<b`.
 
-You could see this as an argument for generic in Go.  Alternatively you could
-argue that the optimizer be smarter.  Knowing the overhead of the current
-implementation is interesting in either case.
+You could see this as an argument for generics in Go.  Alternatively you could
+argue that the optimizer be made smarter.  In either case, knowing the overhead
+of the current implementation is quite interesting.
 
 ## Results
 I'm seeing about a 1.5x to 2.5x performance penalty from the standard library
