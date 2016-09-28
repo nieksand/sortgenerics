@@ -9,10 +9,9 @@ use of an interface:
 
 * https://golang.org/pkg/sort/#Interface
 
-I hacked together a Python script which takes the standard library's
-implementation and emits specialized output for a given []type.  So rather than
-using interface functions like Swap() and Less(), it directly uses `a,b=b,a` and
-`a<b`.
+I hacked together a Python script which takes the standard library's sort and
+emits code specialized for a given []type.  So rather than using interface
+functions like Swap() and Less(), it directly uses `a,b=b,a` and `a<b`.
 
 You could see this as an argument for generic in Go.  Alternatively you could
 argue that the optimizer be smarter.  Knowing the overhead of the current
