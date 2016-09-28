@@ -18,9 +18,9 @@ argue that the optimizer be made smarter.  In either case, knowing the overhead
 of the current implementation is quite interesting.
 
 ## Results
-I'm seeing about a 1.5x to 2.5x performance penalty from the standard library
-approach.  It is fun to play with the numElem variable to see how the size of
-the random input array impacts the timings.
+I'm seeing about a 1.5x to 2.5x performance penalty from the standard library's
+current implementation.  It is fun to play with the numElem variable to see how
+the size of the random input array impacts the timings.
 
 These numbers come from Go 1.7.1 on my mid-2013 Macbook Air.  For each type,
 BenchmarkLib is the standard library sort and BenchmarkSpec is the specialized
