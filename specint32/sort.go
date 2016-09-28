@@ -1,3 +1,4 @@
+// GENERATED CODE FROM specialize_sort.py
 package specint32
 
 func insertionSort(data []int32, a, b int) {
