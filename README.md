@@ -19,6 +19,10 @@ argue that the optimizer be smarter.  Knowing the overhead of the current
 implementation is interesting in either case.
 
 ## Results
+I'm seeing about a 1.5x to 2.5x performance penalty from the standard library
+approach.  It is fun to play with the numElem variable to see how the size of
+the random input array impacts the timings.
+
 These numbers come from Go 1.7.1 on my mid-2013 Macbook Air.  For each type,
 BenchmarkLib is the standard library sort and BenchmarkSpec is the specialized
 implementation.
@@ -36,10 +40,6 @@ You can run the benchmark yourself:
 
 	prompt> cd sortfun
 	prompt> go test -bench .
-
-I'm seeing about a 1.5x to 2.5x performance penalty from the standard library
-approach.  It is fun to play with the numElem variable to see how the size of
-the random input array impacts the timings.
 
 ## Implementation
 There is a super cheesy python script which has the standard library Sort
