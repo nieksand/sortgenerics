@@ -28,10 +28,13 @@ implementation.
 
 	BenchmarkLibInt-4       	    1000	   2087739 ns/op
 	BenchmarkSpecInt-4      	    2000	    927293 ns/op
+
 	BenchmarkLibInt8-4      	    1000	   1372540 ns/op
 	BenchmarkSpecInt8-4     	    3000	    493541 ns/op
+
 	BenchmarkLibInt32-4     	    1000	   2101148 ns/op
 	BenchmarkSpecInt32-4    	    2000	    794551 ns/op
+
 	BenchmarkLibString-4    	     500	   3623716 ns/op
 	BenchmarkSpecString-4   	     500	   2537745 ns/op
 
