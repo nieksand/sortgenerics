@@ -44,8 +44,9 @@ You can run the benchmark yourself:
 	prompt> go test -bench .
 
 ## Implementation
-There is a super cheesy python script which has the standard library Sort
-massaged with some Vim macro love.  The type gets string interpolated in.
+There is a super cheesy Python script which has the standard library Sort
+massaged with some Vim macro love.  The []type gets string interpolated in.
+
 Example usage:
 
 	python specialize_sort.py specint8 int8 > specint8/sort.go
