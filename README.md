@@ -1,5 +1,5 @@
 # Overhead of Go's Generic Sort
-This started while prototyping an idea to make smarter external merge sorts
+This started while prototyping an idea to make faster external merge sorts
 through additional bookkeeping and introspection.  I began with a fairly naive,
 top-down merge sort and was surprised to see it matching and even drastically
 outperforming the standard library's sort routine for some inputs.
