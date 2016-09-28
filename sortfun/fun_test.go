@@ -5,10 +5,10 @@ import (
 	"math/rand"
 
 	libsort "sort"
-	"gitlab.corp.tune.com/sortgenerics/specint"
-	"gitlab.corp.tune.com/sortgenerics/specint8"
-	"gitlab.corp.tune.com/sortgenerics/specint32"
-	"gitlab.corp.tune.com/sortgenerics/specstring"
+	"github.com/nieksand/sortgenerics/specint"
+	"github.com/nieksand/sortgenerics/specint8"
+	"github.com/nieksand/sortgenerics/specint32"
+	"github.com/nieksand/sortgenerics/specstring"
 )
 
 var numElem = 10000
