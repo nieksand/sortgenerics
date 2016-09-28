@@ -14,10 +14,9 @@ implementation and emits specialized output for a given []type.  So rather than
 using interface functions like Swap() and Less(), it directly uses `a,b=b,a` and
 `a<b`.
 
-Whether you want to case this as an argument for generic in Go or just an
-opportunity to make the compiler smarter on optimization is up to you.  I think
-knowing the overhead of the generic vs. specialized implementation is
-interesting in either case.
+You could see this as an argument for generic in Go.  Alternatively you could
+argue that the optimizer be smarter.  Knowing the overhead of the current
+implementation is interesting in either case.
 
 ## Results
 These numbers come from Go 1.7.1 on my mid-2013 Macbook Air.  For each type,
