@@ -4,8 +4,8 @@ through additional bookkeeping and introspection.  I began with a fairly naive,
 top-down merge sort and was surprised to see it matching and even drastically
 outperforming the standard library's sort routine for some inputs.
 
-That led me to ponder just how much overhead comes sort.Sort() forcing the use
-of an interface:
+That led me to ponder just how much overhead comes from sort.Sort() forcing the
+use of an interface:
 
 * https://golang.org/pkg/sort/#Interface
 
