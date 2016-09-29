@@ -8,6 +8,7 @@ import (
 	"github.com/nieksand/sortgenerics/specint32"
 	"github.com/nieksand/sortgenerics/specint8"
 	"github.com/nieksand/sortgenerics/specstring"
+	"github.com/nieksand/sortgenerics/specstruct"
 	libsort "sort"
 )
 
@@ -17,6 +18,16 @@ var testDatInt []int
 var testDatInt8 []int8
 var testDatInt32 []int32
 var testDatString []string
+
+var testDatPotato []specstruct.Potato
+
+func randString(buf []byte) string {
+	alpha := "abcdefghijklmnopqrstuvwxyz"
+	for j := 0; j < len(buf); j++ {
+		buf[j] = alpha[rand.Intn(len(alpha))]
+	}
+	return string(buf)
+}
 
 func init() {
 	testDatInt = make([]int, numElem)
@@ -35,13 +46,14 @@ func init() {
 	}
 
 	testDatString = make([]string, numElem)
-	alpha := "abcdefghijklmnopqrstuvwxyz"
 	bs := make([]byte, 8)
 	for i := 0; i < numElem; i++ {
-		for j := 0; j < len(bs); j++ {
-			bs[j] = alpha[rand.Intn(len(alpha))]
-		}
-		testDatString[i] = string(bs)
+		testDatString[i] = randString(bs)
+	}
+
+	testDatPotato = make([]specstruct.Potato, numElem)
+	for i := 0; i < numElem; i++ {
+		testDatPotato[i] = specstruct.Potato{rand.Int(), randString(bs)}
 	}
 }
 
@@ -168,5 +180,29 @@ func BenchmarkSpecString(b *testing.B) {
 		copy(vs, testDatString)
 		b.StartTimer()
 		specstring.SpecializedSort(vs)
+	}
+}
+
+func BenchmarkLibPotato(b *testing.B) {
+	vs := make(specstruct.PotatoSlice, numElem)
+	b.ResetTimer()
+
+	for i := 0; i < b.N; i++ {
+		b.StopTimer()
+		copy(vs, specstruct.PotatoSlice(testDatPotato))
+		b.StartTimer()
+		libsort.Sort(vs)
+	}
+}
+
+func BenchmarkSpecPotato(b *testing.B) {
+	vs := make([]specstruct.Potato, numElem)
+	b.ResetTimer()
+
+	for i := 0; i < b.N; i++ {
+		b.StopTimer()
+		copy(vs, testDatPotato)
+		b.StartTimer()
+		specstruct.SpecializedSort(vs)
 	}
 }
