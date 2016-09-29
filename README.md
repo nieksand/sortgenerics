@@ -26,22 +26,38 @@ These numbers come from Go 1.7.1 on my mid-2013 Macbook Air.  For each type,
 BenchmarkLib is the standard library sort and BenchmarkSpec is the specialized
 implementation.
 
-	BenchmarkLibInt-4       	    1000	   2087739 ns/op
-	BenchmarkSpecInt-4      	    2000	    927293 ns/op
+With 10K random elements:
 
-	BenchmarkLibInt8-4      	    1000	   1372540 ns/op
-	BenchmarkSpecInt8-4     	    3000	    493541 ns/op
+	BenchmarkLibInt-4       	   10000	   2045356 ns/op
+	BenchmarkSpecInt-4      	   20000	    926124 ns/op
 
-	BenchmarkLibInt32-4     	    1000	   2101148 ns/op
-	BenchmarkSpecInt32-4    	    2000	    794551 ns/op
+	BenchmarkLibInt8-4      	   10000	   1353532 ns/op
+	BenchmarkSpecInt8-4     	   30000	    492396 ns/op
 
-	BenchmarkLibString-4    	     500	   3623716 ns/op
-	BenchmarkSpecString-4   	     500	   2537745 ns/op
+	BenchmarkLibInt32-4     	   10000	   1984590 ns/op
+	BenchmarkSpecInt32-4    	   20000	    774953 ns/op
+
+	BenchmarkLibString-4    	    5000	   3580412 ns/op
+	BenchmarkSpecString-4   	    5000	   2471724 ns/op
+
+Sorting 10M random elements:
+
+	BenchmarkLibInt-4       	       3	3540916295 ns/op
+	BenchmarkSpecInt-4      	      10	1472208735 ns/op
+
+	BenchmarkLibInt8-4      	      10	1353120802 ns/op
+	BenchmarkSpecInt8-4     	      30	 478561462 ns/op
+
+	BenchmarkLibInt32-4     	       3	3512489914 ns/op
+	BenchmarkSpecInt32-4    	      10	1426428402 ns/op
+
+	BenchmarkLibString-4    	       1	10616472819 ns/op
+	BenchmarkSpecString-4   	       2	7489515205 ns/op
 
 You can run the benchmark yourself:
 
 	prompt> cd sortfun
-	prompt> go test -bench .
+	prompt> go test -benchtime=10s -bench .
 
 ## Implementation
 There is a super cheesy Python script which has the standard library Sort
