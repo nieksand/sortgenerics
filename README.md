@@ -26,6 +26,11 @@ These numbers come from Go 1.7.1 on my mid-2013 Macbook Air.  For each type,
 BenchmarkLib is the standard library sort and BenchmarkSpec is the specialized
 implementation.
 
+From feedback on a Hacker News discussion, I added in a test case for
+specializing sorts on a struct rather than a primitive type.  Potato has an int
+and a string and we sort on the former.  Note that for this case, I can still
+specialize the Swap and Len but not the Less operation.
+
 With 10K random elements:
 
 	BenchmarkLibInt-4       	   10000	   2045356 ns/op
@@ -40,6 +45,9 @@ With 10K random elements:
 	BenchmarkLibString-4    	    5000	   3580412 ns/op
 	BenchmarkSpecString-4   	    5000	   2471724 ns/op
 
+	BenchmarkLibPotato-4    	   10000	   2166569 ns/op
+	BenchmarkSpecPotato-4   	   10000	   1020842 ns/op
+
 Sorting 10M random elements:
 
 	BenchmarkLibInt-4       	       3	3540916295 ns/op
@@ -53,6 +61,9 @@ Sorting 10M random elements:
 
 	BenchmarkLibString-4    	       1	10616472819 ns/op
 	BenchmarkSpecString-4   	       2	7489515205 ns/op
+
+	BenchmarkLibPotato-4    	       3	3829722562 ns/op
+	BenchmarkSpecPotato-4   	      10	1802874882 ns/op
 
 You can run the benchmark yourself:
 
