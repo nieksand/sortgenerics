@@ -26,10 +26,11 @@ These numbers come from Go 1.7.1 on my mid-2013 Macbook Air.  For each type,
 BenchmarkLib is the standard library sort and BenchmarkSpec is the specialized
 implementation.
 
-From feedback on a Hacker News discussion, I added in a test case for
-specializing sorts on a struct rather than a primitive type.  Potato has an int
-and a string and we sort on the former.  Note that for this case, I can still
-specialize the Swap and Len but not the Less operation.
+From feedback on a Hacker News discussion (https://news.ycombinator.com/item?id=12602456),
+I added in a test case for specializing sorts on a struct rather than a
+primitive type.  Potato has an int and a string and we sort on the former.  Note
+that for this case, I can still specialize the Swap and Len but not the Less
+operation.
 
 With 10K random elements:
 
